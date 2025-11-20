@@ -1,0 +1,24 @@
+{
+  "brand": {
+    "name": "JoinJoy",
+    "destination": "クラビジャーニーズ"
+  },
+  "nav": {
+    "links": {
+      "boats": "ボート",
+      "experiences": "体験",
+      "cta": "予約を始める"
+    },
+    "login": "ログイン",
+    "book": "私たちと予約",
+    "whatsapp": "WhatsApp",
+    "language": "言語"
+  },
+  "hero": {
+    "badge": "ラグジュアリークルーズ • JoinJoy と巡るクラビ",
+    "title": "スタイリッシュに航海し、クラビで最高の瞬間を",
+    "description": "雰囲気に合うヨットを選びましょう。サンセットクルーズからプライベートパーティーまで、コンシェルジュが手配します。",
+    "primaryCta": "旅を計画する",
+    "secondaryCta": "すべてのボートを見る"
+  }
+}

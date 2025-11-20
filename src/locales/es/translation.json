@@ -1,0 +1,24 @@
+{
+  "brand": {
+    "name": "JoinJoy",
+    "destination": "Viajes en Krabi"
+  },
+  "nav": {
+    "links": {
+      "boats": "Barcos",
+      "experiences": "Experiencias",
+      "cta": "Comenzar reserva"
+    },
+    "login": "Iniciar sesión",
+    "book": "Reserva con nosotros",
+    "whatsapp": "WhatsApp",
+    "language": "Idioma"
+  },
+  "hero": {
+    "badge": "Cruceros de lujo • Krabi con JoinJoy",
+    "title": "Navega con estilo y vive tus mejores momentos en Krabi",
+    "description": "Elige el yate que encaje contigo. Nuestro equipo de conserjería se encarga de todo, desde cruceros al atardecer hasta fiestas privadas.",
+    "primaryCta": "Planear mi viaje",
+    "secondaryCta": "Ver todos los barcos"
+  }
+}

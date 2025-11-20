@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import BoatCard from '../components/BoatCard.jsx';
 import ExperienceCard from '../components/ExperienceCard.jsx';
 
@@ -69,27 +70,29 @@ const experiences = [
 ];
 
 function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative overflow-hidden bg-white py-20 lg:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(24,119,242,0.1),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(66,183,42,0.12),transparent_36%)]" />
       <div className="section-shell relative grid gap-12 lg:grid-cols-2 lg:items-center">
         <div className="space-y-8">
           <span className="inline-flex items-center rounded-full bg-[#e8f2ff] px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20">
-            ล่องเรือหรู • เที่ยวทะเลกระบี่กับ JoinJoy
+            {t('hero.badge')}
           </span>
           <h1 className="text-4xl font-black leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
-            ออกเรือแบบมีสไตล์ หาโมเมนต์สุขกลางทะเลกระบี่
+            {t('hero.title')}
           </h1>
           <p className="text-lg text-slate-700 sm:max-w-xl">
-            เลือกเรือที่ใช่ ทีมคอนเซียร์จดูแลครบ ทั้งทริปชมพระอาทิตย์ตก ดำน้ำกระบี่ หรือปาร์ตี้ส่วนตัว จองง่าย สบายใจทุกขั้นตอน
+            {t('hero.description')}
           </p>
           <div className="flex flex-wrap gap-4">
             <button className="inline-flex items-center gap-2 rounded-xl bg-[#1877F2] px-5 py-3 text-base font-semibold text-white shadow-md shadow-[#1877F2]/30 transition hover:scale-[1.01]">
-              เริ่มวางแผนทริป
+              {t('hero.primaryCta')}
               <span aria-hidden className="text-xl">→</span>
             </button>
             <button className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-base font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/30 transition hover:bg-[#f0f6ff]">
-              ดูเรือทั้งหมด
+              {t('hero.secondaryCta')}
             </button>
           </div>
           <div className="grid max-w-lg grid-cols-2 gap-4 sm:gap-6">

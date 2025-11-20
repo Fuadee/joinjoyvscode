@@ -1,0 +1,24 @@
+{
+  "brand": {
+    "name": "JoinJoy",
+    "destination": "Krabi Journeys"
+  },
+  "nav": {
+    "links": {
+      "boats": "Bot",
+      "experiences": "Pengalaman",
+      "cta": "Mulakan tempahan"
+    },
+    "login": "Log masuk",
+    "book": "Tempah dengan kami",
+    "whatsapp": "WhatsApp",
+    "language": "Bahasa"
+  },
+  "hero": {
+    "badge": "Pelayaran mewah • Krabi bersama JoinJoy",
+    "title": "Belayar bergaya dan cipta detik indah di Krabi",
+    "description": "Pilih bot yang sesuai. Pasukan concierge kami uruskan semuanya, dari pelayaran matahari terbenam hingga parti peribadi.",
+    "primaryCta": "Rancang perjalanan",
+    "secondaryCta": "Lihat semua bot"
+  }
+}
