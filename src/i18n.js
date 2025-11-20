@@ -27,25 +27,54 @@ export const languageOptions = [
   { code: 'hi', label: 'HI', name: 'हिन्दी' }
 ];
 
+const deepMerge = (base, override) => {
+  const output = Array.isArray(base) ? [...base] : { ...base };
+
+  Object.keys(override || {}).forEach((key) => {
+    const baseValue = output[key];
+    const overrideValue = override[key];
+
+    if (
+      baseValue &&
+      overrideValue &&
+      typeof baseValue === 'object' &&
+      typeof overrideValue === 'object' &&
+      !Array.isArray(baseValue) &&
+      !Array.isArray(overrideValue)
+    ) {
+      output[key] = deepMerge(baseValue, overrideValue);
+    } else {
+      output[key] = overrideValue;
+    }
+  });
+
+  return output;
+};
+
+const withEnglishFallback = (translation) =>
+  deepMerge(JSON.parse(JSON.stringify(enTranslation)), translation);
+
 const resources = {
   en: { translation: enTranslation },
-  th: { translation: thTranslation },
-  hi: { translation: hiTranslation },
-  ms: { translation: msTranslation },
-  zh: { translation: zhTranslation },
-  ja: { translation: jaTranslation },
-  ru: { translation: ruTranslation },
-  he: { translation: heTranslation },
-  de: { translation: deTranslation },
-  fr: { translation: frTranslation },
-  es: { translation: esTranslation }
+  th: { translation: withEnglishFallback(thTranslation) },
+  hi: { translation: withEnglishFallback(hiTranslation) },
+  ms: { translation: withEnglishFallback(msTranslation) },
+  zh: { translation: withEnglishFallback(zhTranslation) },
+  ja: { translation: withEnglishFallback(jaTranslation) },
+  ru: { translation: withEnglishFallback(ruTranslation) },
+  he: { translation: withEnglishFallback(heTranslation) },
+  de: { translation: withEnglishFallback(deTranslation) },
+  fr: { translation: withEnglishFallback(frTranslation) },
+  es: { translation: withEnglishFallback(esTranslation) }
 };
+
+const storedLanguage = typeof window !== 'undefined' ? localStorage.getItem('i18nextLng') : null;
 
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'th',
+    lng: storedLanguage || 'th',
     fallbackLng: 'en',
     supportedLngs: languageOptions.map((lang) => lang.code),
     interpolation: {
