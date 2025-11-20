@@ -8,7 +8,7 @@ const sizeClasses = {
 };
 
 function LanguageSwitcher({ size = 'md' }) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -30,7 +30,7 @@ function LanguageSwitcher({ size = 'md' }) {
       <button
         type="button"
         className={`inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white font-semibold text-slate-700 shadow-sm transition hover:border-[#1877F2]/40 hover:text-[#1877F2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1877F2] ${sizeClasses[size]}`}
-        aria-label="Change language"
+        aria-label={t('nav.language')}
         aria-expanded={isOpen}
         onClick={() => setIsOpen((prev) => !prev)}
       >
