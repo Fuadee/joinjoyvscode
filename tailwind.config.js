@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Prompt', 'Kanit', 'Sarabun', 'system-ui', 'sans-serif'],
       },
       colors: {
         ocean: {

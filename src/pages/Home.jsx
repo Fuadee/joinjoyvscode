@@ -4,116 +4,116 @@ import ExperienceCard from '../components/ExperienceCard.jsx';
 const boats = [
   {
     name: 'Azure Dawn 42',
-    type: 'Luxury Catamaran',
+    type: 'คาตามารันหรู',
     capacity: 12,
     price: 820,
     image:
       'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80',
-    tags: ['Sunset cruises', 'Premium bar', 'Crewed'],
+    tags: ['ล่องชมพระอาทิตย์ตก', 'บาร์พรีเมียม', 'มีลูกเรือดูแล'],
   },
   {
     name: 'Silver Tide 36',
-    type: 'Express Cruiser',
+    type: 'ครูซเซอร์สปีด',
     capacity: 8,
     price: 560,
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-    tags: ['Day trips', 'Snorkeling gear', 'Bluetooth audio'],
+    tags: ['ทริปวันเดียว', 'อุปกรณ์ดำน้ำ', 'เสียงเพลงบลูทูธ'],
   },
   {
     name: 'Mariner 50',
-    type: 'Flybridge Yacht',
+    type: 'ยอชต์ชั้นดาดฟ้า',
     capacity: 16,
     price: 1040,
     image: 'https://images.unsplash.com/photo-1500375591096-0bcfc4c0a7a1?auto=format&fit=crop&w=1200&q=80',
-    tags: ['Overnight', 'Private chef', 'Staterooms'],
+    tags: ['ค้างคืน', 'เชฟส่วนตัว', 'ห้องพักส่วนตัว'],
   },
   {
     name: 'Coral Whisper 32',
-    type: 'Eco Cat',
+    type: 'เรือรักษ์ทะเล',
     capacity: 6,
     price: 420,
     image: 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80',
-    tags: ['Electric hybrid', 'Shallow draft', 'Local guide'],
+    tags: ['ไฮบริดไฟฟ้า', 'เข้าหาดตื้นได้', 'ไกด์ท้องถิ่น'],
   },
 ];
 
 const experiences = [
   {
-    title: 'Sunset Champagne Cruise',
-    category: 'Evenings',
+    title: 'ครูซแชมเปญยามเย็น',
+    category: 'ช่วงเย็น',
     icon: '🌅',
     description:
-      'Sail into golden hour with curated playlists, chilled champagne, and a crew that times the route for the perfect skyline glow.',
-    highlights: ['2.5 hours', 'Sommelier-selected bottles', 'Chef snacks'],
+      'ออกเรือรับแสงทองพร้อมเพลย์ลิสต์ฟีลกู๊ด แชมเปญเย็นฉ่ำ และทีมงานที่คุมจังหวะให้ได้มุมพระอาทิตย์ตกสวยที่สุด.',
+    highlights: ['2.5 ชั่วโมง', 'แชมเปญคัดพิเศษ', 'ของว่างจากเชฟ'],
   },
   {
-    title: 'Island Hopping Day',
-    category: 'Adventure',
+    title: 'เกาะกระบี่วันเดียวจบ',
+    category: 'ผจญภัย',
     icon: '🏝️',
     description:
-      'Hop across hidden sandbars and snorkel reefs with a local guide who knows the calmest coves and clearest waters.',
-    highlights: ['6 hours', 'Snorkel gear', 'Drone photos'],
+      'จอดรับลมบนสันทรายลับ ดำน้ำดูปะการังกับไกด์ท้องถิ่นที่รู้จังหวะน้ำใสสงบและอ่าวเงียบที่สุด.',
+    highlights: ['6 ชั่วโมง', 'อุปกรณ์ดำน้ำ', 'บริการถ่ายโดรน'],
   },
   {
-    title: 'Executive Offshore',
-    category: 'Corporate',
+    title: 'เวิร์กบนเรือ สไตล์ผู้บริหาร',
+    category: 'องค์กร',
     icon: '💼',
     description:
-      'Host clients with concierge-level service, onboard Wi-Fi, and chef-crafted canapés for productive meetings on the water.',
-    highlights: ['Private steward', 'A/V ready', 'Coastal routes'],
+      'ต้อนรับลูกค้าหรือทีมงานด้วยคอนเซียร์จเต็มรูปแบบ Wi‑Fi บนเรือ และคานาเป้จากเชฟ ให้ทุกการประชุมริมทะเลราบรื่นและพรีเมียม.',
+    highlights: ['สจ๊วตดูแลส่วนตัว', 'ระบบเสียงพร้อมใช้', 'เส้นทางทะเลสวย'],
   },
 ];
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.18),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(59,130,246,0.18),transparent_32%)]" />
+    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(24,119,242,0.1),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(66,183,42,0.12),transparent_36%)]" />
       <div className="section-shell relative grid gap-12 lg:grid-cols-2 lg:items-center">
         <div className="space-y-8">
-          <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-white/10">
-            Luxury charters • Coastal getaways
+          <span className="inline-flex items-center rounded-full bg-[#e8f2ff] px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20">
+            ล่องเรือหรู • เที่ยวทะเลกระบี่กับ JoinJoy
           </span>
-          <h1 className="text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
-            Cruise the coast in comfort with HarborWave.
+          <h1 className="text-4xl font-black leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            ออกเรือแบบมีสไตล์ หาโมเมนต์สุขกลางทะเลกระบี่
           </h1>
-          <p className="text-lg text-slate-300 sm:max-w-xl">
-            Curated boats, concierge crews, and memorable experiences—tailored for sunset soirees, island hopping, and private celebrations.
+          <p className="text-lg text-slate-700 sm:max-w-xl">
+            เลือกเรือที่ใช่ ทีมคอนเซียร์จดูแลครบ ทั้งทริปชมพระอาทิตย์ตก ดำน้ำกระบี่ หรือปาร์ตี้ส่วนตัว จองง่าย สบายใจทุกขั้นตอน
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 px-5 py-3 text-base font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:scale-[1.01]">
-              Start planning
+            <button className="inline-flex items-center gap-2 rounded-xl bg-[#1877F2] px-5 py-3 text-base font-semibold text-white shadow-md shadow-[#1877F2]/30 transition hover:scale-[1.01]">
+              เริ่มวางแผนทริป
               <span aria-hidden className="text-xl">→</span>
             </button>
-            <button className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-base font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/5">
-              View fleet
+            <button className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-base font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/30 transition hover:bg-[#f0f6ff]">
+              ดูเรือทั้งหมด
             </button>
           </div>
           <div className="grid max-w-lg grid-cols-2 gap-4 sm:gap-6">
             {[
-              ['98% five-star trips', 'Service you can trust'],
-              ['15 min response', 'Concierge anytime'],
-              ['Coastwide routes', 'Pick a harbor'],
-              ['Luxury fleet', 'Hand-inspected'],
+              ['98% ให้คะแนนห้าดาว', 'บริการที่ไว้ใจได้'],
+              ['ตอบกลับภายใน 15 นาที', 'คอนเซียร์จพร้อมช่วย'],
+              ['เส้นทางรอบกระบี่', 'เลือกท่าที่สะดวก'],
+              ['กองเรือพรีเมียม', 'ตรวจเช็กทุกลำ'],
             ].map(([title, subtitle]) => (
               <div key={title} className="card-surface space-y-1 p-4">
-                <p className="text-xs uppercase tracking-wide text-cyan-100">{subtitle}</p>
-                <p className="text-lg font-semibold text-white">{title}</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-[#1877F2]">{subtitle}</p>
+                <p className="text-lg font-semibold text-slate-900">{title}</p>
               </div>
             ))}
           </div>
         </div>
         <div className="relative">
-          <div className="absolute inset-0 rounded-3xl bg-white/10 blur-2xl" />
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 shadow-2xl shadow-blue-900/40">
+          <div className="absolute inset-0 rounded-3xl bg-[#1877F2]/10 blur-3xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/90">
             <img
               className="h-full w-full object-cover"
               src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80"
-              alt="Yacht on the ocean"
+              alt="เรือยอชต์กลางทะเลกระบี่"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-6">
-              <p className="text-sm uppercase tracking-wide text-cyan-100">Featured voyage</p>
-              <p className="text-xl font-semibold text-white">Twilight harbor sail • Phuket</p>
-              <p className="text-sm text-slate-300">Chef tasting menu • Live saxophonist • Drone videography</p>
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent p-6 text-white">
+              <p className="text-sm uppercase tracking-wide text-[#e0ecff]">ทริปแนะนำ</p>
+              <p className="text-xl font-semibold">ล่องยามเย็น • อ่าวนาง</p>
+              <p className="text-sm text-slate-100">เชฟเสิร์ฟคานาเป้ • แซ็กโซโฟนสด • ถ่ายโดรนบันทึกความทรงจำ</p>
             </div>
           </div>
         </div>
@@ -124,15 +124,15 @@ function Hero() {
 
 function ExperienceGrid() {
   return (
-    <section id="experiences" className="bg-gradient-to-b from-slate-950 to-slate-900 py-16 sm:py-20">
+    <section id="experiences" className="bg-[#f7f9fb] py-16 sm:py-20">
       <div className="section-shell space-y-10">
         <div className="space-y-3 text-center">
-          <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-white/10">
-            Curated experiences
+          <span className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20 shadow-sm">
+            ทริปที่คัดสรรให้คุณ
           </span>
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">Pick your perfect itinerary</h2>
-          <p className="text-lg text-slate-300 sm:max-w-2xl sm:mx-auto">
-            From romantic sunsets to corporate escapes, our concierge team designs every detail so you can relax into the rhythm of the water.
+          <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">เลือกสไตล์ที่ใช่ แล้วไปสนุกกับ JoinJoy</h2>
+          <p className="text-lg text-slate-700 sm:mx-auto sm:max-w-2xl">
+            ไม่ว่าจะแฮงเอาท์โรแมนติก หรือพาทีมไปเวิร์กชอปริมทะเล คอนเซียร์จของเราดีไซน์ทริปให้ตรงใจ ให้คุณมีเวลาโฟกัสแค่ความสุข
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -150,12 +150,12 @@ function FleetSection() {
     <section id="boats" className="py-16 sm:py-20">
       <div className="section-shell space-y-12">
         <div className="space-y-3 text-center">
-          <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-white/10">
-            Signature fleet
+          <span className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20 shadow-sm">
+            กองเรือซิกเนเจอร์
           </span>
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">Pick the perfect boat</h2>
-          <p className="text-lg text-slate-300 sm:max-w-2xl sm:mx-auto">
-            Hand-inspected vessels with pro crews, transparent pricing, and flexible itineraries for every occasion.
+          <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">เลือกเรือที่ตรงใจ แล้วออกทะเลได้เลย</h2>
+          <p className="text-lg text-slate-700 sm:mx-auto sm:max-w-2xl">
+            ทุกลำผ่านการตรวจเช็ก ทีมงานมืออาชีพ แจ้งราคาโปร่งใส พร้อมปรับแผนตามสไตล์ทริปของคุณ
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -172,53 +172,53 @@ function CTASection() {
   return (
     <section id="cta" className="py-16 sm:py-20">
       <div className="section-shell">
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-cyan-500/20 via-blue-600/15 to-slate-950 p-10 sm:p-12">
-          <div className="absolute -right-20 -top-16 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
+        <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-10 shadow-xl shadow-slate-200/80 sm:p-12">
+          <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1877F2]/10 blur-3xl" />
           <div className="relative grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div className="space-y-4">
-              <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-white/10">
-                White-glove concierge
+              <span className="inline-flex items-center rounded-full bg-[#e8f2ff] px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20">
+                คอนเซียร์จดูแลครบ
               </span>
-              <h3 className="text-3xl font-black text-white sm:text-4xl">Tell us your dream sail. We handle the rest.</h3>
-              <p className="text-lg text-slate-200 sm:max-w-2xl">
-                From provisioning to dockside car service, our concierge team scripts every moment. Just share the vibe—romantic, adventurous, or laid-back—and we craft it end-to-end.
+              <h3 className="text-3xl font-black text-slate-900 sm:text-4xl">เล่าแพลนในฝัน เราจัดให้ครบตั้งแต่ท่าเรือถึงบนเรือ</h3>
+              <p className="text-lg text-slate-700 sm:max-w-2xl">
+                ตั้งแต่เตรียมอาหาร รถรับส่งถึงท่าเรือ จนถึงกิจกรรมบนเรือ ทีม JoinJoy จะช่วยออกแบบให้ตรงฟีล ไม่ว่าจะโรแมนติก ผจญภัย หรือชิลล์ ๆ
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-white/10">
-                  Concierge captain
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#f0f6ff] px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20">
+                  กัปตันที่รู้เส้นทาง
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-white/10">
-                  Menu design
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#f0f6ff] px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20">
+                  เมนูอาหารตามใจ
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-white/10">
-                  Onboard events
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#f0f6ff] px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20">
+                  อีเวนต์บนเรือ
                 </span>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 rounded-3xl bg-white/10 blur-2xl" />
-              <div className="relative space-y-4 rounded-2xl border border-white/15 bg-slate-950/70 p-6 shadow-lg">
+              <div className="absolute inset-0 rounded-3xl bg-[#1877F2]/10 blur-2xl" />
+              <div className="relative space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/70">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-sm text-slate-300">Concierge line</div>
-                    <div className="text-xl font-semibold text-white">+66 92 777 4400</div>
+                    <div className="text-sm text-slate-500">สายด่วนคอนเซียร์จ</div>
+                    <div className="text-xl font-semibold text-slate-900">+66 92 777 4400</div>
                   </div>
-                  <span className="rounded-full bg-cyan-400/20 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-cyan-300/40">
-                    Available
+                  <span className="rounded-full bg-[#42B72A]/10 px-3 py-1 text-xs font-semibold text-[#1f7a12] ring-1 ring-[#42B72A]/30">
+                    พร้อมดูแล
                   </span>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <label className="block text-sm text-slate-200">
-                    Preferred date
+                  <label className="block text-sm text-slate-700">
+                    วันที่ต้องการเดินทาง
                     <input
-                      className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none"
+                      className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 focus:border-[#1877F2] focus:outline-none"
                       type="date"
                     />
                   </label>
-                  <label className="block text-sm text-slate-200">
-                    Guests
+                  <label className="block text-sm text-slate-700">
+                    จำนวนผู้ร่วมทริป
                     <input
-                      className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none"
+                      className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 focus:border-[#1877F2] focus:outline-none"
                       type="number"
                       min="2"
                       max="20"
@@ -226,19 +226,19 @@ function CTASection() {
                     />
                   </label>
                 </div>
-                <label className="block text-sm text-slate-200">
-                  What are you planning?
-                  <select className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white focus:border-cyan-400 focus:outline-none">
-                    <option className="bg-slate-950">Sunset cruise</option>
-                    <option className="bg-slate-950">Island hop</option>
-                    <option className="bg-slate-950">Celebration</option>
-                    <option className="bg-slate-950">Corporate event</option>
+                <label className="block text-sm text-slate-700">
+                  อยากจัดทริปแบบไหน
+                  <select className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-900 focus:border-[#1877F2] focus:outline-none">
+                    <option className="bg-white">ครูซชมพระอาทิตย์ตก</option>
+                    <option className="bg-white">ดำน้ำ-กระโดดเกาะ</option>
+                    <option className="bg-white">ปาร์ตี้หรือฉลอง</option>
+                    <option className="bg-white">ทริปองค์กร/เวิร์กช็อป</option>
                   </select>
                 </label>
-                <button className="w-full rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 px-4 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:scale-[1.01]">
-                  Request itinerary
+                <button className="w-full rounded-xl bg-[#1877F2] px-4 py-3 text-sm font-semibold text-white shadow-md shadow-[#1877F2]/30 transition hover:scale-[1.01]">
+                  ขอแผนการเดินทาง
                 </button>
-                <p className="text-center text-xs text-slate-400">A concierge will call you within 15 minutes to confirm details.</p>
+                <p className="text-center text-xs text-slate-500">ทีมคอนเซียร์จจะติดต่อกลับภายใน 15 นาทีเพื่อยืนยันรายละเอียด</p>
               </div>
             </div>
           </div>
@@ -250,23 +250,23 @@ function CTASection() {
 
 function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-slate-950 py-10">
-      <div className="section-shell flex flex-col items-center justify-between gap-4 text-sm text-slate-400 sm:flex-row">
+    <footer className="border-t border-slate-200 bg-white py-10">
+      <div className="section-shell flex flex-col items-center justify-between gap-4 text-sm text-slate-600 sm:flex-row">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 text-base font-black text-slate-950">
-            HW
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1877F2] text-base font-black text-white shadow-sm">
+            JJ
           </div>
-          <span>HarborWave Cruises</span>
+          <span>JoinJoy Krabi</span>
         </div>
         <div className="flex items-center gap-4">
-          <a className="hover:text-white" href="#">
-            Instagram
+          <a className="transition hover:text-[#1877F2]" href="#">
+            อินสตาแกรม
           </a>
-          <a className="hover:text-white" href="#">
-            Facebook
+          <a className="transition hover:text-[#1877F2]" href="#">
+            เฟซบุ๊ก
           </a>
-          <a className="hover:text-white" href="#">
-            Terms
+          <a className="transition hover:text-[#1877F2]" href="#">
+            ข้อกำหนดการใช้บริการ
           </a>
         </div>
       </div>
