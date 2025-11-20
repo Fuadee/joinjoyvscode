@@ -1,5 +1,6 @@
 {
   "brand": {
+    "initials": "JJ",
     "name": "JoinJoy",
     "destination": "Krabi Journeys"
   },
@@ -9,6 +10,8 @@
       "experiences": "Experiences",
       "cta": "Start booking"
     },
+    "menuOpen": "Open navigation menu",
+    "menuClose": "Close navigation menu",
     "login": "Log in",
     "book": "Book with us",
     "whatsapp": "WhatsApp",
@@ -30,7 +33,8 @@
       "badge": "Featured trip",
       "title": "Sunset sail • Ao Nang",
       "description": "Chef's canapés • Live saxophone • Drone photo memories"
-    }
+    },
+    "imageAlt": "Luxury yacht sailing in Krabi"
   },
   "experiences": {
     "badge": "Handpicked experiences",
@@ -58,7 +62,8 @@
         "description": "Welcome clients or teams with full concierge service, on-board Wi‑Fi, and chef canapés for smooth, premium meetings.",
         "highlights": ["Private steward", "Ready-to-use sound", "Scenic sea routes"]
       }
-    ]
+    ],
+    "cardLabel": "Experience card: {{title}}"
   },
   "fleet": {
     "badge": "Signature fleet",
@@ -106,6 +111,7 @@
   "boatCard": {
     "capacity": "Fits {{count}} guests",
     "starting": "Starting from",
+    "price": "฿{{price}}",
     "view": "View boat details",
     "ratingLabel": "Rated {{rating}} out of 5"
   },
@@ -119,6 +125,7 @@
     "availability": "Standing by",
     "tripDate": "Preferred date",
     "guestCount": "Guest count",
+    "guestsPlaceholder": "8",
     "tripStyle": "Trip style",
     "tripStyles": ["Sunset cruise", "Snorkel island hop", "Party or celebration", "Corporate/workshop"],
     "submit": "Request my itinerary",

@@ -61,7 +61,7 @@ function BoatCard({ boat }) {
           </div>
           <div className="text-right">
             <p className="text-xs text-slate-500">{t('boatCard.starting')}</p>
-            <p className="text-xl font-semibold text-[#1877F2]">฿{boat.price}</p>
+            <p className="text-xl font-semibold text-[#1877F2]">{t('boatCard.price', { price: boat.price })}</p>
           </div>
         </div>
         <div className="flex flex-wrap gap-2">

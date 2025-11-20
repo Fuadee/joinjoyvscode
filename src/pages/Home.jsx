@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import BoatCard from '../components/BoatCard.jsx';
 import ExperienceCard from '../components/ExperienceCard.jsx';
+import Footer from '../components/Footer.jsx';
 
 function Hero() {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ function Hero() {
             <img
               className="h-full w-full object-cover"
               src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80"
-              alt="เรือยอชต์กลางทะเลกระบี่"
+              alt={t('hero.imageAlt')}
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent p-6 text-white">
               <p className="text-sm uppercase tracking-wide text-[#e0ecff]">{featuredTrip.badge}</p>
@@ -159,7 +160,7 @@ function CTASection() {
                       type="number"
                       min="2"
                       max="20"
-                      placeholder="8"
+                      placeholder={t('cta.guestsPlaceholder')}
                     />
                   </label>
                 </div>
@@ -186,34 +187,6 @@ function CTASection() {
   );
 }
 
-function FooterSection() {
-  const { t } = useTranslation();
-
-  return (
-    <footer className="border-t border-slate-200 bg-white py-10">
-      <div className="section-shell flex flex-col items-center justify-between gap-4 text-sm text-slate-600 sm:flex-row">
-        <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1877F2] text-base font-black text-white shadow-sm">
-            JJ
-          </div>
-          <span>{t('footer.brand')}</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <a className="transition hover:text-[#1877F2]" href="#">
-            {t('footer.instagram')}
-          </a>
-          <a className="transition hover:text-[#1877F2]" href="#">
-            {t('footer.facebook')}
-          </a>
-          <a className="transition hover:text-[#1877F2]" href="#">
-            {t('footer.terms')}
-          </a>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 function Home() {
   return (
     <main>
@@ -221,7 +194,7 @@ function Home() {
       <ExperienceGrid />
       <FleetSection />
       <CTASection />
-      <FooterSection />
+      <Footer />
     </main>
   );
 }
