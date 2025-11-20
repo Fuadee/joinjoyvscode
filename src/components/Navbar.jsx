@@ -6,6 +6,12 @@ function Navbar() {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navLinks = [
+    { href: '#boats', label: t('nav.links.boats') },
+    { href: '#experiences', label: t('nav.links.experiences') },
+    { href: '#cta', label: t('nav.links.cta') }
+  ];
+
   const whatsappHref = 'https://wa.me/XXXXXXXXXX';
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -18,13 +24,13 @@ function Navbar() {
             JJ
           </div>
           <div className="leading-tight">
-            <p className="text-xs font-semibold uppercase tracking-wide text-[#1877F2]">JoinJoy</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#1877F2]">{t('brand.name')}</p>
             <p className="truncate text-lg font-semibold text-slate-900">{t('brand.destination')}</p>
           </div>
         </div>
 
         <nav className="hidden flex-1 items-center justify-center gap-7 text-sm font-medium text-slate-700 md:flex">
-          {[{ href: '#boats', label: t('nav.links.boats') }, { href: '#experiences', label: t('nav.links.experiences') }, { href: '#cta', label: t('nav.links.cta') }].map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               className="transition hover:text-[#1877F2]"
@@ -96,7 +102,7 @@ function Navbar() {
       >
         <div className="mt-2 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/70">
           <div className="flex flex-col gap-1 p-4 text-sm font-medium text-slate-800">
-            {[{ href: '#boats', label: t('nav.links.boats') }, { href: '#experiences', label: t('nav.links.experiences') }, { href: '#cta', label: t('nav.links.cta') }].map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link.href}
                 className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-[#1877F2]"
