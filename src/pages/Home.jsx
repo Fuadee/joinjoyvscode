@@ -7,6 +7,7 @@ const boats = [
     type: 'คาตามารันหรู',
     capacity: 12,
     price: 820,
+    rating: 4.9,
     image:
       'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80',
     tags: ['ล่องชมพระอาทิตย์ตก', 'บาร์พรีเมียม', 'มีลูกเรือดูแล'],
@@ -16,6 +17,7 @@ const boats = [
     type: 'ครูซเซอร์สปีด',
     capacity: 8,
     price: 560,
+    rating: 4.7,
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
     tags: ['ทริปวันเดียว', 'อุปกรณ์ดำน้ำ', 'เสียงเพลงบลูทูธ'],
   },
@@ -24,7 +26,8 @@ const boats = [
     type: 'ยอชต์ชั้นดาดฟ้า',
     capacity: 16,
     price: 1040,
-    image: 'https://images.unsplash.com/photo-1500375591096-0bcfc4c0a7a1?auto=format&fit=crop&w=1200&q=80',
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
     tags: ['ค้างคืน', 'เชฟส่วนตัว', 'ห้องพักส่วนตัว'],
   },
   {
@@ -32,6 +35,7 @@ const boats = [
     type: 'เรือรักษ์ทะเล',
     capacity: 6,
     price: 420,
+    rating: 4.6,
     image: 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80',
     tags: ['ไฮบริดไฟฟ้า', 'เข้าหาดตื้นได้', 'ไกด์ท้องถิ่น'],
   },
