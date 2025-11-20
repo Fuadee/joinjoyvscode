@@ -25,6 +25,14 @@ function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          <a
+            className="inline-flex rounded-xl bg-green-500 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-green-500/30 transition hover:scale-[1.01]"
+            href="https://wa.me/XXXXXXXXXX"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
           <button className="hidden rounded-xl px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/30 transition hover:bg-[#1877F2]/5 sm:inline-flex">
             เข้าสู่ระบบ
           </button>
