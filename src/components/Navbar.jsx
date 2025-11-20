@@ -1,12 +1,9 @@
 import { useState } from 'react';
-
-const links = [
-  { href: '#boats', label: 'เรือทั้งหมด' },
-  { href: '#experiences', label: 'ประสบการณ์' },
-  { href: '#cta', label: 'เริ่มจอง' },
-];
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 
 function Navbar() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const whatsappHref = 'https://wa.me/XXXXXXXXXX';
@@ -15,19 +12,19 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="section-shell flex h-16 items-center justify-between gap-3">
+      <div className="section-shell flex h-16 items-center justify-between gap-2 sm:gap-3">
         <div className="flex min-w-0 flex-1 items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#1877F2] text-lg font-black text-white shadow-md">
             JJ
           </div>
           <div className="leading-tight">
             <p className="text-xs font-semibold uppercase tracking-wide text-[#1877F2]">JoinJoy</p>
-            <p className="truncate text-lg font-semibold text-slate-900">Krabi Journeys</p>
+            <p className="truncate text-lg font-semibold text-slate-900">{t('brand.destination')}</p>
           </div>
         </div>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
-          {links.map((link) => (
+        <nav className="hidden flex-1 items-center justify-center gap-7 text-sm font-medium text-slate-700 md:flex">
+          {[{ href: '#boats', label: t('nav.links.boats') }, { href: '#experiences', label: t('nav.links.experiences') }, { href: '#cta', label: t('nav.links.cta') }].map((link) => (
             <a
               key={link.href}
               className="transition hover:text-[#1877F2]"
@@ -38,31 +35,33 @@ function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex lg:gap-3">
+          <LanguageSwitcher />
           <a
             className="inline-flex items-center rounded-xl bg-[#25D366] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[#25D366]/30 transition hover:scale-[1.01] hover:bg-[#22c05d]"
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
           >
-            WhatsApp
+            {t('nav.whatsapp')}
           </a>
           <button className="rounded-xl px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/30 transition hover:bg-[#1877F2]/5">
-            เข้าสู่ระบบ
+            {t('nav.login')}
           </button>
           <button className="inline-flex rounded-xl bg-[#1877F2] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[#1877F2]/30 transition hover:scale-[1.01]">
-            จองเรือกับเรา
+            {t('nav.book')}
           </button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher size="sm" />
           <a
             className="inline-flex items-center rounded-xl bg-[#25D366] px-3 py-2 text-sm font-semibold text-white shadow-md shadow-[#25D366]/35 transition hover:bg-[#22c05d]"
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
           >
-            WhatsApp
+            {t('nav.whatsapp')}
           </a>
           <button
             type="button"
@@ -97,7 +96,7 @@ function Navbar() {
       >
         <div className="mt-2 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/70">
           <div className="flex flex-col gap-1 p-4 text-sm font-medium text-slate-800">
-            {links.map((link) => (
+            {[{ href: '#boats', label: t('nav.links.boats') }, { href: '#experiences', label: t('nav.links.experiences') }, { href: '#cta', label: t('nav.links.cta') }].map((link) => (
               <a
                 key={link.href}
                 className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-[#1877F2]"
@@ -110,10 +109,10 @@ function Navbar() {
           </div>
           <div className="flex flex-col gap-2 border-t border-slate-100 p-4">
             <button className="inline-flex w-full justify-center rounded-xl px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/25 transition hover:bg-[#1877F2]/5">
-              เข้าสู่ระบบ
+              {t('nav.login')}
             </button>
             <button className="inline-flex w-full justify-center rounded-xl bg-[#1877F2] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[#1877F2]/30 transition hover:scale-[1.01]">
-              จองเรือกับเรา
+              {t('nav.book')}
             </button>
           </div>
         </div>

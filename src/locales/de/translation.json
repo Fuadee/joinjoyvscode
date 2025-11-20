@@ -1,0 +1,24 @@
+{
+  "brand": {
+    "name": "JoinJoy",
+    "destination": "Krabi-Reisen"
+  },
+  "nav": {
+    "links": {
+      "boats": "Boote",
+      "experiences": "Erlebnisse",
+      "cta": "Buchung starten"
+    },
+    "login": "Anmelden",
+    "book": "Bei uns buchen",
+    "whatsapp": "WhatsApp",
+    "language": "Sprache"
+  },
+  "hero": {
+    "badge": "Luxus-Kreuzfahrten • Krabi mit JoinJoy",
+    "title": "Stilvoll segeln und glückliche Momente in Krabi finden",
+    "description": "Wählen Sie die passende Yacht. Unser Concierge-Team kümmert sich um alles – vom Sonnenuntergangs-Cruise bis zur privaten Party.",
+    "primaryCta": "Reise planen",
+    "secondaryCta": "Alle Boote ansehen"
+  }
+}

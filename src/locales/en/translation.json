@@ -1,0 +1,24 @@
+{
+  "brand": {
+    "name": "JoinJoy",
+    "destination": "Krabi Journeys"
+  },
+  "nav": {
+    "links": {
+      "boats": "Boats",
+      "experiences": "Experiences",
+      "cta": "Start booking"
+    },
+    "login": "Log in",
+    "book": "Book with us",
+    "whatsapp": "WhatsApp",
+    "language": "Language"
+  },
+  "hero": {
+    "badge": "Luxury cruises • Krabi with JoinJoy",
+    "title": "Sail in style and find your happiest moments in Krabi",
+    "description": "Pick the yacht that fits your vibe. Our concierge team handles every detail, from sunset cruises to private parties.",
+    "primaryCta": "Plan my trip",
+    "secondaryCta": "See all boats"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "brand": {
+    "name": "JoinJoy",
+    "destination": "甲米航程"
+  },
+  "nav": {
+    "links": {
+      "boats": "船只",
+      "experiences": "体验",
+      "cta": "开始预订"
+    },
+    "login": "登录",
+    "book": "与我们预订",
+    "whatsapp": "WhatsApp",
+    "language": "语言"
+  },
+  "hero": {
+    "badge": "奢华游艇 • 与 JoinJoy 畅游甲米",
+    "title": "优雅启航，在甲米找到属于你的快乐时刻",
+    "description": "选择适合的游艇。我们的礼宾团队为你安排一切，从日落巡航到私人派对。",
+    "primaryCta": "规划行程",
+    "secondaryCta": "查看全部船只"
+  }
+}
