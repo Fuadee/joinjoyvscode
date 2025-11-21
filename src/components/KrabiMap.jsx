@@ -124,6 +124,10 @@ function KrabiMap() {
 
     mapInstanceRef.current = map;
 
+    setTimeout(() => {
+      map.invalidateSize(true);
+    }, 300);
+
     L.control.zoom({ position: 'topright' }).addTo(map);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
