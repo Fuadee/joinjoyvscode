@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import BoatCard from '../components/BoatCard.jsx';
 import ExperienceCard from '../components/ExperienceCard.jsx';
 import Footer from '../components/Footer.jsx';
+import KrabiMap from '../components/KrabiMap.jsx';
 
 function Hero() {
   const { t } = useTranslation();
@@ -191,6 +192,7 @@ function Home() {
   return (
     <main>
       <Hero />
+      <KrabiMap />
       <ExperienceGrid />
       <FleetSection />
       <CTASection />
