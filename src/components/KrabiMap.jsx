@@ -203,6 +203,21 @@ function KrabiMap() {
 
   return (
     <div className="krabi-map-wrapper">
+      <div
+        id="krabiMap"
+        ref={mapRef}
+        className="krabi-map-container"
+        aria-label="JoinJoy Krabi interactive map"
+      />
+
+      {activePlace && (
+        <div className="krabi-info-card">
+          <span className="krabi-info-tag">{activePlace.highlightTag}</span>
+          <div className="krabi-info-title">{activePlace.name}</div>
+          <div className="krabi-info-subtitle">{activePlace.shortDescription}</div>
+        </div>
+      )}
+
       <div className="krabi-map-header">
         <div className="krabi-map-badge">JoinJoy Premium Routes</div>
         <div className="krabi-map-title">Krabi Highlights</div>
@@ -218,28 +233,6 @@ function KrabiMap() {
             </button>
           ))}
         </div>
-      </div>
-
-      <div
-        ref={mapRef}
-        className="krabi-map-container"
-        aria-label="JoinJoy Krabi interactive map"
-      />
-
-      <div className="krabi-info-card">
-        {activePlace ? (
-          <>
-            <span className="krabi-info-tag">{activePlace.highlightTag}</span>
-            <div className="krabi-info-title">{activePlace.name}</div>
-            <div className="krabi-info-subtitle">{activePlace.shortDescription}</div>
-          </>
-        ) : (
-          <>
-            <span className="krabi-info-tag">Signature</span>
-            <div className="krabi-info-title">Select a marker to preview</div>
-            <div className="krabi-info-subtitle">Tap the categories above to browse our curated Krabi routes.</div>
-          </>
-        )}
       </div>
     </div>
   );
