@@ -206,25 +206,10 @@ function KrabiMap() {
   }, [activePlace]);
 
   return (
-    <div className="krabi-map-wrapper">
-      <div
-        id="krabiMap"
-        ref={mapRef}
-        className="krabi-map-container"
-        aria-label="JoinJoy Krabi interactive map"
-      />
-
-      {activePlace && (
-        <div className="krabi-info-card">
-          <span className="krabi-info-tag">{activePlace.highlightTag}</span>
-          <div className="krabi-info-title">{activePlace.name}</div>
-          <div className="krabi-info-subtitle">{activePlace.shortDescription}</div>
-        </div>
-      )}
-
-      <div className="krabi-map-header">
-        <div className="krabi-map-badge">JoinJoy Premium Routes</div>
-        <div className="krabi-map-title">Krabi Highlights</div>
+    <div className="krabi-map-section">
+      <div className="krabi-map-topbar">
+        <span className="krabi-map-badge">JOINJOY PREMIUM ROUTES</span>
+        <h3 className="krabi-map-title">Krabi Highlights</h3>
         <div className="krabi-map-filters">
           {CATEGORIES.map((category) => (
             <button
@@ -237,6 +222,23 @@ function KrabiMap() {
             </button>
           ))}
         </div>
+      </div>
+
+      <div className="krabi-map-wrapper">
+        <div
+          id="krabiMap"
+          ref={mapRef}
+          className="krabi-map-container"
+          aria-label="JoinJoy Krabi interactive map"
+        />
+
+        {activePlace && (
+          <div className="krabi-info-card">
+            <span className="krabi-info-tag">{activePlace.highlightTag}</span>
+            <div className="krabi-info-title">{activePlace.name}</div>
+            <div className="krabi-info-subtitle">{activePlace.shortDescription}</div>
+          </div>
+        )}
       </div>
     </div>
   );
