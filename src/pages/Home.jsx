@@ -3,11 +3,11 @@ import BoatCard from '../components/BoatCard.jsx';
 import ExperienceCard from '../components/ExperienceCard.jsx';
 import Footer from '../components/Footer.jsx';
 import KrabiMap from '../components/KrabiMap.jsx';
+import '../components/KrabiMap.css';
 
 function Hero() {
   const { t } = useTranslation();
   const highlights = t('hero.highlights', { returnObjects: true });
-  const featuredTrip = t('hero.featuredTrip', { returnObjects: true });
 
   return (
     <section className="relative overflow-hidden bg-white py-20 lg:py-28">
@@ -43,17 +43,11 @@ function Hero() {
         </div>
         <div className="relative">
           <div className="absolute inset-0 rounded-3xl bg-[#1877F2]/10 blur-3xl" />
-          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/90">
-            <img
-              className="h-full w-full object-cover"
-              src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80"
-              alt={t('hero.imageAlt')}
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent p-6 text-white">
-              <p className="text-sm uppercase tracking-wide text-[#e0ecff]">{featuredTrip.badge}</p>
-              <p className="text-xl font-semibold">{featuredTrip.title}</p>
-              <p className="text-sm text-slate-100">{featuredTrip.description}</p>
-            </div>
+          <div
+            className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/90"
+            style={{ width: '100%', height: '100%', minHeight: '480px' }}
+          >
+            <KrabiMap />
           </div>
         </div>
       </div>
