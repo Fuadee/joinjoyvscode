@@ -41,14 +41,8 @@ function Hero() {
             ))}
           </div>
         </div>
-        <div className="relative">
-          <div className="absolute inset-0 rounded-3xl bg-[#1877F2]/10 blur-3xl" />
-          <div
-            className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/90"
-            style={{ width: '100%', height: '100%', minHeight: '480px' }}
-          >
-            <KrabiMap />
-          </div>
+        <div className="relative" style={{ width: '100%' }}>
+          <KrabiMap />
         </div>
       </div>
     </section>
