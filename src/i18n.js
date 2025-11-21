@@ -8,7 +8,6 @@ export const languageOptions = [
   { code: 'zh', label: 'ZH', name: '中文' },
   { code: 'ja', label: 'JA', name: '日本語' },
   { code: 'ru', label: 'RU', name: 'Русский' },
-  { code: 'he', label: 'HE', name: 'עברית' },
   { code: 'de', label: 'DE', name: 'Deutsch' },
   { code: 'fr', label: 'FR', name: 'Français' },
   { code: 'es', label: 'ES', name: 'Español' },
@@ -30,8 +29,26 @@ const supportedLngs = languageOptions.map((lang) => lang.code);
 const fallbackLng = 'en';
 const storedLanguage =
   typeof window !== 'undefined' ? localStorage.getItem('i18nextLng') : null;
+const getBrowserLanguage = () => {
+  if (typeof navigator === 'undefined') return null;
+
+  const browserLanguages = navigator.languages || [navigator.language];
+
+  for (const language of browserLanguages) {
+    if (!language) continue;
+    const baseCode = language.split('-')[0];
+    if (supportedLngs.includes(baseCode)) {
+      return baseCode;
+    }
+  }
+
+  return null;
+};
+
 const initialLanguage =
-  storedLanguage && supportedLngs.includes(storedLanguage) ? storedLanguage : fallbackLng;
+  storedLanguage && supportedLngs.includes(storedLanguage)
+    ? storedLanguage
+    : getBrowserLanguage() || fallbackLng;
 const basePath = import.meta.env.BASE_URL || '/';
 
 i18n

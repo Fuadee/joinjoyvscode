@@ -51,6 +51,9 @@ function LanguageSwitcher({ size = 'md' }) {
               }`}
               onClick={() => {
                 i18n.changeLanguage(option.code);
+                if (typeof window !== 'undefined') {
+                  localStorage.setItem('i18nextLng', option.code);
+                }
                 setIsOpen(false);
               }}
             >
