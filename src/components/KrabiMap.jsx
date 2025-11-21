@@ -1,4 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import './KrabiMap.css';
 
 const CATEGORY_COLORS = {
@@ -72,7 +74,7 @@ const CATEGORIES = [
   { key: 'sunset', label: 'Sunset' },
 ];
 
-const createMarkerIcon = (L, type, isActive = false) => {
+const createMarkerIcon = (type, isActive = false) => {
   const color = CATEGORY_COLORS[type] || '#0b69c4';
   return L.divIcon({
     className: 'krabi-marker-wrapper',
@@ -106,13 +108,15 @@ function KrabiMap() {
   }, [filteredPlaces, activePlace]);
 
   useEffect(() => {
-    const L = window.L;
-    if (!L || !mapRef.current || mapInstanceRef.current) {
+    const container = mapRef.current || document.getElementById('krabiMap');
+    if (!container || mapInstanceRef.current) {
       return undefined;
     }
 
+    mapRef.current = container;
+
     const bounds = L.latLngBounds(krabiBounds);
-    const map = L.map(mapRef.current, {
+    const map = L.map(container, {
       center: [8.0863, 98.9063],
       zoom: 10,
       zoomControl: false,
@@ -137,7 +141,12 @@ function KrabiMap() {
     }).addTo(map);
 
     fetch(`${import.meta.env.BASE_URL}krabi-border.geojson`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to load border data');
+        }
+        return response.json();
+      })
       .then((data) => {
         const layer = L.geoJSON(data, {
           style: {
@@ -165,16 +174,15 @@ function KrabiMap() {
   }, []);
 
   useEffect(() => {
-    const L = window.L;
     const map = mapInstanceRef.current;
-    if (!L || !map) return undefined;
+    if (!map) return undefined;
 
     markersRef.current.forEach((marker) => marker.remove());
     markersRef.current = [];
 
     filteredPlaces.forEach((place) => {
       const marker = L.marker(place.coords, {
-        icon: createMarkerIcon(L, place.type, activePlace?.id === place.id),
+        icon: createMarkerIcon(place.type, activePlace?.id === place.id),
         riseOnHover: true,
       })
         .addTo(map)
