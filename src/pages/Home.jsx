@@ -192,7 +192,20 @@ function Home() {
   return (
     <main>
       <Hero />
-      <KrabiMap />
+      <section className="bg-gradient-to-b from-sky-50 via-white to-sky-100 py-16 sm:py-20">
+        <div className="section-shell space-y-8">
+          <div className="space-y-3 text-center">
+            <span className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#1877F2] ring-1 ring-[#1877F2]/20 shadow-sm">
+              JoinJoy Signature Map
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">สำรวจเส้นทางไฮไลต์ในกระบี่</h2>
+            <p className="text-lg text-slate-700 sm:mx-auto sm:max-w-3xl">
+              ดูจุดขึ้นเรือ ดำน้ำ และจุดชมพระอาทิตย์ตกที่ JoinJoy คัดมาแล้ว พร้อมตัวกรองเส้นทางที่อยากไป
+            </p>
+          </div>
+          <KrabiMap />
+        </div>
+      </section>
       <ExperienceGrid />
       <FleetSection />
       <CTASection />

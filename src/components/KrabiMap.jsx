@@ -1,11 +1,62 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import './KrabiMap.css';
 
-const markers = [
-  { name: 'Ao Nang', position: [8.0404, 98.8222] },
-  { name: 'Railay', position: [8.0117, 98.8395] },
-  { name: 'Phi Phi Island', position: [7.7407, 98.7765] },
-  { name: 'Hong Island', position: [8.1089, 98.7021] },
-  { name: 'Thale Waek', position: [7.99, 98.8144] },
+const CATEGORY_COLORS = {
+  beach: '#ffb347',
+  island: '#00b894',
+  snorkel: '#0984e3',
+  sunset: '#e17055',
+};
+
+const PLACES = [
+  {
+    id: 'ao-nang',
+    name: 'Ao Nang',
+    type: 'beach',
+    coords: [8.0404, 98.8222],
+    highlightTag: 'Starting Point',
+    shortDescription: 'Main beach and pier for most JoinJoy trips.',
+  },
+  {
+    id: 'railay',
+    name: 'Railay Beach',
+    type: 'beach',
+    coords: [8.0117, 98.8395],
+    highlightTag: 'Cliff & Sunset',
+    shortDescription: 'Famous cliffs, sunset views, and chill beach vibes.',
+  },
+  {
+    id: 'phi-phi',
+    name: 'Phi Phi Islands',
+    type: 'island',
+    coords: [7.7407, 98.7765],
+    highlightTag: 'Island Hopping',
+    shortDescription: 'Iconic islands with turquoise water and snorkeling.',
+  },
+  {
+    id: 'hong',
+    name: 'Hong Island',
+    type: 'snorkel',
+    coords: [8.1089, 98.7021],
+    highlightTag: 'Lagoon',
+    shortDescription: 'Stunning lagoon with calm water and kayaking.',
+  },
+  {
+    id: 'thale-waek',
+    name: 'Thale Waek',
+    type: 'snorkel',
+    coords: [7.99, 98.8144],
+    highlightTag: 'Sandbar',
+    shortDescription: 'Famous sandbar that appears at low tide.',
+  },
+  {
+    id: 'klong-muang-sunset',
+    name: 'Klong Muang Sunset Point',
+    type: 'sunset',
+    coords: [8.0896, 98.9584],
+    highlightTag: 'Sunset Cruise',
+    shortDescription: 'Golden-hour viewpoint perfect for ending island days.',
+  },
 ];
 
 const krabiBounds = [
@@ -13,13 +64,50 @@ const krabiBounds = [
   [8.4, 99.1],
 ];
 
+const CATEGORIES = [
+  { key: 'all', label: 'All' },
+  { key: 'beach', label: 'Beach' },
+  { key: 'island', label: 'Island' },
+  { key: 'snorkel', label: 'Snorkel' },
+  { key: 'sunset', label: 'Sunset' },
+];
+
+const createMarkerIcon = (L, type, isActive = false) => {
+  const color = CATEGORY_COLORS[type] || '#0b69c4';
+  return L.divIcon({
+    className: 'krabi-marker-wrapper',
+    html: `
+      <div class="krabi-marker ${isActive ? 'krabi-marker--active' : ''}" style="--marker-color:${color}">
+        <span class="krabi-marker-dot"></span>
+      </div>
+    `,
+    iconSize: [28, 28],
+    iconAnchor: [14, 26],
+    popupAnchor: [0, -20],
+  });
+};
+
 function KrabiMap() {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
+  const markersRef = useRef([]);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [activePlace, setActivePlace] = useState(PLACES[0]);
+
+  const filteredPlaces = useMemo(
+    () => (selectedCategory === 'all' ? PLACES : PLACES.filter((place) => place.type === selectedCategory)),
+    [selectedCategory],
+  );
+
+  useEffect(() => {
+    if (activePlace && !filteredPlaces.find((place) => place.id === activePlace.id)) {
+      setActivePlace(filteredPlaces[0] || null);
+    }
+  }, [filteredPlaces, activePlace]);
 
   useEffect(() => {
     const L = window.L;
-    if (!L || !mapRef.current) {
+    if (!L || !mapRef.current || mapInstanceRef.current) {
       return undefined;
     }
 
@@ -31,15 +119,17 @@ function KrabiMap() {
       maxBounds: bounds.pad(0.15),
       minZoom: 8,
       maxZoom: 17,
+      scrollWheelZoom: !L.Browser.mobile,
     });
+
     mapInstanceRef.current = map;
 
     L.control.zoom({ position: 'topright' }).addTo(map);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      maxZoom: 19,
     }).addTo(map);
 
     fetch(`${import.meta.env.BASE_URL}krabi-border.geojson`)
@@ -49,13 +139,13 @@ function KrabiMap() {
           style: {
             color: '#0099ff',
             weight: 2,
-            fillColor: '#0099ff',
-            fillOpacity: 0.1,
+            fillColor: '#e6f4ff',
+            fillOpacity: 0.18,
           },
         }).addTo(map);
 
         if (data.features && data.features.length) {
-          map.fitBounds(layer.getBounds().pad(0.1));
+          map.fitBounds(layer.getBounds().pad(0.08));
         } else {
           map.fitBounds(bounds);
         }
@@ -64,53 +154,94 @@ function KrabiMap() {
         map.fitBounds(bounds);
       });
 
-    const premiumIcon = L.icon({
-      iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers/img/marker-icon-2x-blue.png',
-      shadowUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers/img/marker-shadow.png',
-      iconSize: [30, 45],
-      iconAnchor: [15, 42],
-      popupAnchor: [0, -32],
-      shadowSize: [45, 45],
-    });
-
-    markers.forEach((spot) => {
-      L.marker(spot.position, { icon: premiumIcon })
-        .addTo(map)
-        .bindPopup(
-          `<div style="display:flex;flex-direction:column;gap:4px;">` +
-            `<strong style="font-size:14px;color:#0b69c4;">${spot.name}</strong>` +
-            '<span style="color:#1b365d;">Signature Krabi highlight</span>' +
-          '</div>',
-        );
-    });
-
     return () => {
       map.remove();
       mapInstanceRef.current = null;
     };
   }, []);
 
+  useEffect(() => {
+    const L = window.L;
+    const map = mapInstanceRef.current;
+    if (!L || !map) return undefined;
+
+    markersRef.current.forEach((marker) => marker.remove());
+    markersRef.current = [];
+
+    filteredPlaces.forEach((place) => {
+      const marker = L.marker(place.coords, {
+        icon: createMarkerIcon(L, place.type, activePlace?.id === place.id),
+        riseOnHover: true,
+      })
+        .addTo(map)
+        .on('click', () => {
+          setActivePlace(place);
+        });
+
+      marker.bindPopup(
+        `<div class="krabi-popup"><strong>${place.name}</strong><p>${place.shortDescription}</p></div>`,
+        { closeButton: false },
+      );
+
+      markersRef.current.push(marker);
+    });
+
+    return () => {
+      markersRef.current.forEach((marker) => marker.remove());
+      markersRef.current = [];
+    };
+  }, [filteredPlaces, activePlace]);
+
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map || !activePlace) return;
+
+    const currentZoom = map.getZoom();
+    const targetZoom = currentZoom < 11 ? 11 : currentZoom;
+    map.flyTo(activePlace.coords, targetZoom, { duration: 0.6 });
+  }, [activePlace]);
+
   return (
-    <section className="bg-gradient-to-b from-sky-50 via-white to-sky-100 py-16 sm:py-20">
-      <div className="section-shell space-y-6">
-        <div className="flex flex-col gap-3 text-center">
-          <span className="mx-auto inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0b69c4] ring-1 ring-[#0b69c4]/20 shadow-sm">
-            Premium Krabi Explorer Map
-          </span>
-          <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Navigate Krabi Province</h2>
-          <p className="text-lg text-slate-700 sm:max-w-3xl sm:mx-auto">
-            Discover the most iconic islands and beaches with our ocean-inspired map. Zoom, pan, and explore the turquoise coastline with curated highlights.
-          </p>
-        </div>
-        <div className="overflow-hidden rounded-3xl border border-sky-100 shadow-2xl shadow-sky-100/80">
-          <div
-            ref={mapRef}
-            className="h-[520px] w-full"
-            style={{ background: 'linear-gradient(135deg, #e0f2ff 0%, #f8fdff 50%, #c2e1ff 100%)' }}
-          />
+    <div className="krabi-map-wrapper">
+      <div className="krabi-map-header">
+        <div className="krabi-map-badge">JoinJoy Premium Routes</div>
+        <div className="krabi-map-title">Krabi Highlights</div>
+        <div className="krabi-map-filters">
+          {CATEGORIES.map((category) => (
+            <button
+              key={category.key}
+              type="button"
+              className={`krabi-filter-button ${selectedCategory === category.key ? 'krabi-filter-button--active' : ''}`}
+              onClick={() => setSelectedCategory(category.key)}
+            >
+              {category.label}
+            </button>
+          ))}
         </div>
       </div>
-    </section>
+
+      <div
+        ref={mapRef}
+        className="krabi-map-container"
+        aria-label="JoinJoy Krabi interactive map"
+      />
+
+      <div className="krabi-info-card">
+        {activePlace ? (
+          <>
+            <span className="krabi-info-tag">{activePlace.highlightTag}</span>
+            <div className="krabi-info-title">{activePlace.name}</div>
+            <div className="krabi-info-subtitle">{activePlace.shortDescription}</div>
+          </>
+        ) : (
+          <>
+            <span className="krabi-info-tag">Signature</span>
+            <div className="krabi-info-title">Select a marker to preview</div>
+            <div className="krabi-info-subtitle">Tap the categories above to browse our curated Krabi routes.</div>
+          </>
+        )}
+      </div>
+    </div>
   );
 }
 
